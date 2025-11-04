@@ -5,6 +5,14 @@ Metablobs in ASCII
 Animated, ASCII-rendered real-time gooey spheroids with lighting. Or are they
 metaballs?
 
+Works on macos and linux.
+
+## Build Instructions
+
+```bash
+make && ./metaballs
+```
+
 Inspired by demoscene canon and [ASCII
 donut](https://www.a1k0n.net/2006/09/15/obfuscated-c-donut.html), written by
 Andy Sloane, [A1kon](https://www.a1k0n.net/) for the Obfuscated C Contest.
