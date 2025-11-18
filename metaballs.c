@@ -35,7 +35,7 @@
 #define EPSILON 0.001f
 
 // luminance characters (from darkest to brightest)
-const char LUMINANCE_CHARS[] = ".:;!*=sk$#@M";
+const char LUMINANCE_CHARS[] = ".:;!=Xs*$M@#";
 
 typedef struct {
     float x, y, z;
