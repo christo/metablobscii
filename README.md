@@ -7,6 +7,8 @@ metaballs?
 
 Works on macos and linux.
 
+[As seen on YouTube](https://youtu.be/J5HoZglBZfI)
+
 ## Build Instructions
 
 ```bash
