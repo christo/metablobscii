@@ -109,24 +109,14 @@ float ray_march(float ox, float oy, float oz,  // Ray origin
     return -1.0f;  // No hit
 }
 
-// rotate point around X axis
-void rotate_x(float *y, float *z, float angle) {
+// rotate two coordinates in a plane
+void rotate(float *a, float *b, float angle) {
     float cos_a = cosf(angle);
     float sin_a = sinf(angle);
-    float temp_y = *y * cos_a - *z * sin_a;
-    float temp_z = *y * sin_a + *z * cos_a;
-    *y = temp_y;
-    *z = temp_z;
-}
-
-// rotate point around Z axis
-void rotate_z(float *x, float *y, float angle) {
-    float cos_a = cosf(angle);
-    float sin_a = sinf(angle);
-    float temp_x = *x * cos_a - *y * sin_a;
-    float temp_y = *x * sin_a + *y * cos_a;
-    *x = temp_x;
-    *y = temp_y;
+    float temp_a = *a * cos_a - *b * sin_a;
+    float temp_b = *a * sin_a + *b * cos_a;
+    *a = temp_a;
+    *b = temp_b;
 }
 
 int main() {
@@ -189,14 +179,14 @@ int main() {
         blobs[2].z = 0.6f * sinf(angle_B * -1.8f);
 
         // apply different global rotations to each metablob
-        rotate_x(&blobs[0].y, &blobs[0].z, angle_A * 0.9f);
-        rotate_z(&blobs[0].x, &blobs[0].y, angle_B * 0.6f);
+        rotate(&blobs[0].y, &blobs[0].z, angle_A * 0.9f);
+        rotate(&blobs[0].x, &blobs[0].y, angle_B * 0.6f);
 
-        rotate_x(&blobs[1].y, &blobs[1].z, angle_A * 0.5f + 1.2f);
-        rotate_z(&blobs[1].x, &blobs[1].y, angle_B * 0.8f);
+        rotate(&blobs[1].y, &blobs[1].z, angle_A * 0.5f + 1.2f);
+        rotate(&blobs[1].x, &blobs[1].y, angle_B * 0.8f);
 
-        rotate_x(&blobs[2].y, &blobs[2].z, angle_A * 0.3f + 2.5f);
-        rotate_z(&blobs[2].x, &blobs[2].y, angle_B * 0.4f);
+        rotate(&blobs[2].y, &blobs[2].z, angle_A * 0.3f + 2.5f);
+        rotate(&blobs[2].x, &blobs[2].y, angle_B * 0.4f);
 
         // Render each pixel
         for (int screen_y = 0; screen_y < SCREEN_HEIGHT; screen_y++) {
